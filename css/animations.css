@@ -1,0 +1,107 @@
+/* Keyframe Animations & Micro-Interactions */
+
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes floatReverse {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(-1.5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes floatCore {
+  0% {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 0 40px rgba(0, 242, 254, 0.4);
+  }
+  50% {
+    transform: scale(1.04) translateY(-6px);
+    box-shadow: 0 0 65px rgba(0, 242, 254, 0.7);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 0 40px rgba(0, 242, 254, 0.4);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.9) rotate(360deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes shimmerSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-float-1 {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatReverse 6.5s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floatSlow 7.5s ease-in-out 1s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+/* 3D Tilt container */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+/* Scroll reveal utility */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skeleton Loading state */
+.skeleton-box {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.08) 37%, rgba(255, 255, 255, 0.04) 63%);
+  background-size: 400% 100%;
+  animation: shimmerSlide 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
