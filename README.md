@@ -1,107 +1,206 @@
 # INTERNTRACK — Student Internship & Placement Portal
 
-> A Dribbble/Awwwards-grade, production-quality Student Internship & Placement Portal featuring an integrated **SQLite Relational Database Engine**, dynamic 3D career constellation canvas, live academic eligibility assessment, and recruitment journey pipeline.
+> A Dribbble/Awwwards-grade, production-ready full-stack Student Internship & Placement Portal built with **React + TypeScript + Vite** frontend and **FastAPI + SQLAlchemy + Neon PostgreSQL** backend, engineered strictly for **100% Free Tier Deployment** on **Vercel**, **Render**, and **Neon**.
 
 ---
 
-## 🌟 Key Highlights & Features
+## 🌟 Architecture & Free-Tier Stack
 
-### 🗄️ Integrated SQLite Relational Database Engine
-- **In-Browser SQL Terminal & Schema Inspector**: Accessible via navbar button (`🗄️ SQLite DB`) or keyboard shortcut `Ctrl + Shift + S`.
-- **Relational Tables**:
-  - `student_profile` — Academic profile, CGPA, graduation year, specialization, and institution.
-  - `opportunities` — Roles, companies, stipends, deadlines, required skills, and eligibility criteria.
-  - `applications` — Recruitment tracking pipeline with stages (`Applied`, `Screening`, `Shortlisted`, `Interview`, `Selected`).
-  - `skills` — Technical skill catalog with domain categorization and mastery metrics.
-  - `certifications` — Verified credentials (e.g., NPTEL IIT Kharagpur/Madras with digital authentication).
-  - `projects` — Featured engineering software repositories and impact telemetry.
-- **Interactive SQL Features**: Run queries (`SELECT`, `INSERT`, `UPDATE`, `DELETE`, `SHOW TABLES`), execute presets, and export database as JSON.
+```
+                             INTERNET
+                                |
+                                |
+                         VERCEL (Frontend)
+                     React + TypeScript + Vite
+                     SPA Routing (vercel.json)
+                                |
+                             HTTPS
+                                |
+                                ▼
+                         RENDER (Backend)
+                        FastAPI + Python 3.11
+                        JWT & Bcrypt Security
+                                |
+                            SQLAlchemy
+                                |
+                                ▼
+                      NEON (Database Engine)
+                         PostgreSQL Server
+```
 
-### 🌌 3D Interactive Canvas & Hero Composition
-- Deep Obsidian (`#050811`) palette with Electric Cyan (`#00f2fe`) and Indigo/Violet accents.
-- Responsive canvas particle constellation reacting dynamically to mouse proximity and cursor repulsion.
-- Layered 3D glass cards with real-time candidate metrics (87% Match, Shortlisted badge, ₹25K/mo stipend, 3-day deadline countdown).
-
-### 🔍 Live Opportunity Discovery & Editorial Asymmetrical Grid
-- Instant keyword search with `Ctrl + K` focus shortcut.
-- Multi-faceted live filtering: Categories (Cybersecurity, Cloud, AI/ML, Web, Linux/Core), Work Modes (Hybrid, Remote, On-site), and Sorting (Match %, Highest Stipend, Urgent Deadlines).
-- Editorial layout: 1 Lead Featured Card + 2 Stacked Secondary Cards + 1 Wide Panoramic Card + Curated Cards.
-- Detailed modal with job responsibilities, candidate requirements, perks, bookmarking, and 1-click application submission.
-
-### ⚡ Live Interactive Eligibility Engine
-- Interactive candidate parameter simulation: Target Role, Branch, CGPA slider, Graduation batch (2026–2029), and Skill toggle chips.
-- Dynamic animated circular SVG gauge (0–100%) and instant criteria checklist breakdown.
-- Direct "Apply Now with Verified Score" workflow.
-
-### 🔮 Interactive Skill Universe
-- Orbital constellation graph centered around the glowing "CAREER READY" core.
-- Click any of the 10 domain nodes (Cybersecurity, Python, Linux, Networking, ML, Web, SQL, Cloud, Java, Git) to inspect mastery indexes and 4-step industry learning roadmaps.
-
-### 📈 Multi-Stage Application Journey Tracker
-- Recruitment pipeline stepper: `Applied` ➔ `Screening` ➔ `Shortlisted` ➔ `Interview` ➔ `Selected`.
-- "Advance Stage →" button advances candidates with live SQLite updates and animated feedback.
-- Custom application recorder to track off-campus opportunities.
-
-### ⏰ Deadline Radar (Real-Time Countdowns)
-- Second-by-second countdown telemetry for imminent closing windows.
-- Automated urgency classification ("URGENT • 2 DAYS LEFT", "CLOSING SOON").
-
-### 🎓 Student Profile & Analytics Dashboard
-- Dedicated profile for **Dinesh Kumar** (B.E. Computer Science & Engineering - Cyber Security, CGPA 8.48, Class of 2028).
-- Interactive profile editor with direct SQLite persistence.
-- Verified NPTEL Certifications (Java Programming, Cybersecurity & Privacy, Data Science for Engineers).
-- Engineering projects showcase (*Phishing Email Detector*, *VigilStride*, *Smart Attendance System*).
+| Component | Technology | Free Deployment Provider |
+| :--- | :--- | :--- |
+| **Frontend** | React 18, TypeScript, Vite, Modern CSS Variables, Framer Motion, Lucide Icons | **Vercel** (`vercel.json`) |
+| **Backend** | Python 3.11, FastAPI, SQLAlchemy 2.0, Pydantic v2, PyJWT, Passlib (Bcrypt) | **Render** (`render.yaml` / `Dockerfile`) |
+| **Database** | PostgreSQL Relational Database, Connection Pooling, SSL Mode | **Neon PostgreSQL** |
 
 ---
 
-## 🛠️ Project Structure
+## 🚀 Core Features
+
+1. **🌟 Dribbble-Grade Public Landing Page**:
+   - Hero composition with interactive 3D particle constellation canvas.
+   - Layered floating UI glass cards (87% Match, Shortlisted, ₹25K/mo Stipend, 3-Day Deadline Countdown).
+   - Live platform statistics counter (120+ Internships, 45+ Companies, 85+ Skill Tracks, 320+ Applications).
+   - Editorial 3-Step "How It Works" walkthrough (*01 Discover ➔ 02 Check ➔ 03 Track*).
+   - Competency skill universe and candidate showcase.
+
+2. **🔐 Secure Role-Based Authentication**:
+   - JWT token generation, password hashing via Bcrypt, session hydration via AuthContext.
+   - Pre-configured **1-Click Demo Accounts**:
+     - **Student**: `demo@interntrack.com` / `Demo@12345`
+     - **Admin**: `admin@interntrack.com` / `Admin@12345`
+
+3. **⚡ Real-Time Candidate Eligibility Engine (`POST /eligibility/check`)**:
+   - Evaluates candidate parameters (CGPA, Engineering Major, Graduation Batch, and Technical Skills) against live recruiter criteria.
+   - Dynamic animated circular SVG gauge (0–100%) with instant checklist breakdown and missing skill alerts.
+
+4. **📈 Multi-Stage Application Journey Pipeline (`/applications`)**:
+   - Transparent 5-stage recruitment tracker: `Applied` ➔ `Screening` ➔ `Shortlisted` ➔ `Interview` ➔ `Selected`.
+   - Detailed timeline history logs with recruiter notes stored in PostgreSQL.
+   - Interactive stage advancer for live testing and viva demonstration.
+
+5. **💼 Zero-Cost Application Submission (`POST /applications`)**:
+   - Free architecture: Validates and persists direct resume URLs (Google Drive, GitHub, Portfolio) without requiring paid storage buckets.
+
+6. **🎓 Student Profile & Analytics Dashboard (`/profile`)**:
+   - Profile completion telemetry percentage.
+   - Technical skills catalog with Beginner / Intermediate / Advanced proficiency chips.
+   - Verified credentials management (NPTEL IIT Madras, IIT Kharagpur).
+   - Engineering project showcase with GitHub repository and live application links.
+
+---
+
+## 📁 Monorepo Structure
 
 ```
 interntrack/
-├── index.html               # Semantic HTML5 single-page application (100% self-contained)
-├── README.md                # Project documentation & architecture overview
-├── css/
-│   ├── tokens.css           # Color tokens, glassmorphism, glow filters & typography variables
-│   ├── layout.css           # Navbar, hero, stats band, asymmetric grid & responsive queries
-│   ├── components.css       # Cards, radial gauges, timeline steppers, modals & toasts
-│   └── animations.css       # Floating keyframes, 3D tilt transforms & scroll animations
-└── js/
-    ├── bundle.js            # Master production bundle (SQLite Database Engine + UI Controllers)
-    ├── database.js          # Relational SQLite database engine with SQL parser and query runner
-    ├── data.js              # Seed datasets for opportunities, student profile, skills, and apps
-    ├── state.js             # Reactive store with localStorage sync
-    ├── canvas3d.js          # Interactive 3D particle constellation & canvas graphics
-    ├── eligibilityEngine.js # Live candidate eligibility calculator & circular gauge
-    ├── skillUniverse.js     # Orbital skill constellation & learning roadmap explorer
-    ├── applicationTracker.js# Recruitment pipeline manager & stage advancer
-    ├── deadlineRadar.js     # Live countdown clocks & urgency telemetry
-    ├── profileDashboard.js  # Student profile, NPTEL certificates & project showcase
-    ├── ui.js                # Modal dialogue, toast engine, and search filters
-    └── app.js               # ES module bootstrapper
+├── frontend/
+│   ├── src/
+│   │   ├── api/             # Axios API client with JWT interceptor
+│   │   ├── components/      # Glass cards, timeline stepper, gauge, modals, skeletons
+│   │   ├── context/         # AuthContext, ToastContext
+│   │   ├── pages/           # Landing, Login, Register, Dashboard, Opportunities, Detail, Applications, Profile, Skills, Admin
+│   │   ├── types/           # TypeScript data contracts
+│   │   ├── App.tsx          # React router configuration
+│   │   ├── main.tsx         # Entrypoint
+│   │   └── index.css        # Design tokens, glassmorphism, responsive styles
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.ts
+│   ├── vercel.json          # SPA routing rewrites for Vercel
+│   └── .env.example
+├── backend/
+│   ├── app/
+│   │   ├── api/             # FastAPI routers (auth, opportunities, applications, students, skills, eligibility, dashboard, notifications, admin, health)
+│   │   ├── core/            # Config, security, JWT token utilities
+│   │   ├── database/        # SQLAlchemy session & Neon engine setup
+│   │   ├── models/          # PostgreSQL relational schema models
+│   │   ├── schemas/         # Pydantic request/response models
+│   │   ├── services/        # Eligibility calculator engine
+│   │   ├── seed.py          # Database seeder with realistic opportunities & student profile
+│   │   └── main.py          # FastAPI application entrypoint with CORS
+│   ├── tests/               # Pytest automated API testing suite
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   ├── render.yaml          # 1-Click Render backend deployment blueprint
+│   └── .env.example
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🗄️ Database Schema & Entity Relationships
 
-Simply open `index.html` directly in any modern browser:
-```bash
-# Double-click or open directly via file path:
-file:///C:/projects/interntrack/index.html
+```mermaid
+erDiagram
+    USERS ||--|| STUDENT_PROFILES : has
+    STUDENT_PROFILES ||--o{ STUDENT_SKILLS : possesses
+    SKILLS ||--o{ STUDENT_SKILLS : categorized_in
+    COMPANIES ||--o{ OPPORTUNITIES : posts
+    OPPORTUNITIES ||--o{ OPPORTUNITY_SKILLS : requires
+    SKILLS ||--o{ OPPORTUNITY_SKILLS : matched_in
+    STUDENT_PROFILES ||--o{ APPLICATIONS : submits
+    OPPORTUNITIES ||--o{ APPLICATIONS : receives
+    APPLICATIONS ||--o{ APPLICATION_STATUS_HISTORY : logs
+    STUDENT_PROFILES ||--o{ PROJECTS : builds
+    STUDENT_PROFILES ||--o{ CERTIFICATIONS : earns
+    STUDENT_PROFILES ||--o{ NOTIFICATIONS : receives
 ```
-
-Or run via Python lightweight local server:
-```bash
-python -m http.server 3000
-```
-Then visit `http://localhost:3000`.
 
 ---
 
-## ⌨️ Keyboard Shortcuts
-- `Ctrl + K`: Activate Live Opportunity Search
-- `Ctrl + Shift + S`: Open SQLite Database Terminal & SQL Inspector
-- `Esc`: Close any open modal dialogue
+## 🛠️ Local Development Setup
+
+### 1. Clone & Setup Backend (FastAPI)
+
+```bash
+cd backend
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
+# On Linux/macOS:
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+# Run seed script (creates tables & seeds realistic dataset)
+python -m app.seed
+
+# Start FastAPI dev server
+uvicorn app.main:app --reload --port 8000
+```
+Backend will be active at `http://localhost:8000`. Interactive OpenAPI documentation available at `http://localhost:8000/docs`.
+
+### 2. Setup Frontend (React + TypeScript + Vite)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Frontend will be active at `http://localhost:5173`.
+
+---
+
+## 🌐 Zero-Cost Public Deployment Guide
+
+### Step 1: Create Neon PostgreSQL Database (Free)
+1. Go to [Neon.tech](https://neon.tech) and sign up for a free account.
+2. Create a new project called `interntrack`.
+3. Copy your connection string: `postgresql://user:pass@ep-cool-123.us-east-2.aws.neon.tech/interntrack?sslmode=require`.
+
+### Step 2: Deploy Backend to Render (Free)
+1. Go to [Render.com](https://render.com) and create a **Web Service**.
+2. Connect your GitHub repository and set the root directory to `backend`.
+3. Set the following Environment Variables in Render:
+   - `ENVIRONMENT` = `production`
+   - `DATABASE_URL` = `<your-neon-connection-string>`
+   - `JWT_SECRET` = `<your-random-32-char-secret-key>`
+   - `CORS_ORIGINS` = `https://<your-vercel-app-name>.vercel.app,http://localhost:5173`
+4. Build command: `pip install -r requirements.txt`
+5. Start command: `python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+6. Health Check path: `/health`
+7. Click **Deploy Web Service** and copy your backend URL (e.g. `https://interntrack-api.onrender.com`).
+
+### Step 3: Deploy Frontend to Vercel (Free)
+1. Go to [Vercel.com](https://vercel.com) and import the repository.
+2. Set the root directory to `frontend`.
+3. Framework Preset: `Vite`.
+4. Set Environment Variable:
+   - `VITE_API_URL` = `https://<your-render-backend-url>.onrender.com`
+5. Click **Deploy**. Vercel will build the React SPA with full SPA routing (`vercel.json`).
+
+---
+
+## 🧪 Testing
+
+Run backend tests using pytest:
+```bash
+cd backend
+pytest tests/ -v
+```
 
 ---
 
